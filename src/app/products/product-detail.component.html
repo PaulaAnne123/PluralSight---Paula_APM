@@ -1,0 +1,64 @@
+<div class='card' [style.width.px] = 'cardWidth'>
+    <div class='card-header'>
+        {{pageTitle + ': ' + product?.productName}}
+    </div>
+    <div class='card-body' *ngIf='product'>
+        <div class='row'>
+            <div class='col-md-8'>
+                <div class='row'>
+                    <div class='col'>
+                        <p class='card-text'>
+                        Product Code:
+                        </p>
+                    </div>
+                    <div class='col'>
+                        {{product.productCode}}
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <p class='card-text'>
+                        Product Price:
+                        </p>
+                    </div>
+                    <div class='col'>
+                        {{product.price | currency:'USD':'symbol':'1.2-2'}}
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <p class='card-text'>
+                        Product Release Date:
+                        </p>
+                    </div>
+                    <div class='col'>
+                        {{product.releaseDate}}
+                    </div>
+                </div>
+                 <div class='row'>
+                    <div class='col'>
+                        <p class='card-text'>
+                        Product Description:
+                        </p>
+                    </div>
+                    <div class='col'>
+                        {{product.description}}
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-2'>
+                <img [src]='product.imageUrl' 
+                [title]='product.productName | uppercase' 
+                [style.width.px]='imageWidth'
+                [style.margin.px]='imageMargin'>
+            </div>
+        </div>   
+
+    </div>
+    <div class='card-footer'>
+        <button class='btn btn-outline-secondary' 
+        style='width:80px' (click)='onBack()'>
+        <i class='fa fa-chevron-left'></i> Back
+    </button>
+    </div>
+</div>
